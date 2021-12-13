@@ -1,4 +1,4 @@
-package Hard;
+package medium;
 
 public class TrappingRainWater {
 

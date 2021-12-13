@@ -4,7 +4,7 @@ public class medianOfTwoSortedArrays {
 
     public static void main(String[] args) {
         int[] nums1=new int[]{1,3,5,6};
-        int[] nums2=new int[]{2,4,5,8};
+        int[] nums2=new int[]{2,4,7};
 
         System.out.println(medianofArrays(nums1, nums2));
         System.out.println(findMedianSortedArrays(nums1, nums2));
