@@ -20,9 +20,19 @@ public class printSpiralMatrix {
 
         spiralPrint(3,3,a1);
 
+        System.out.println("\n");
+        int a2[][] = { { 1, 2, 3, 4, 5, 6 },
+                { 7, 8, 9, 10, 11, 12 } };
+
+        // Function Call
+        spiralPrint(a2.length, a2[0].length, a2);
+
+
+
     }
 
     public static void spiralPrint(int m, int n, int[][] a){
+        System.out.println("The rows: "+a.length+" and cols: "+a[0].length);
         int i, k=0, l=0;
 
         while(k<m && l<n){
