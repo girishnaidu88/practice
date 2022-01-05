@@ -42,16 +42,15 @@ public class printSpiralMatrix {
 
             //Print last row
             if(k<m){
-                for(i=n-1; i>=1;--i){
+                for(i=n-1; i>=0;--i){
                     System.out.print(a[m-1][i]+" ");
                 }
                 m--;
             }
 
-
             //Print first column
             if(l<n){
-                for(i=m-1; i>=k;--i ){
+                for(i=m-1; i>k;--i ){
                     System.out.print(a[i][l]+" ");
                 }
                 l++;
