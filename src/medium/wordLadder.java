@@ -6,86 +6,60 @@ import java.util.*;
 public class wordLadder {
 
     public static void main(String[] args){
-        // make dictionary
-        Set<String> D = new HashSet<String>();
-        D.add("poon");
-        D.add("plee");
-        D.add("same");
-        D.add("poie");
-        D.add("plie");
-        D.add("poin");
-        D.add("plea");
-        String start = "toon";
-        String target = "plea";
-        System.out.print("Length of shortest chain is: "
-                + shortestChainLen(start, target, D));
 
+        String[] listWords={"hot","dot","dog","lot","log","cog"};
 
-//        Set<String> D = new HashSet<String>();
-//        D.add("hit");
-//        D.add("hot");
-//        D.add("dot");
-//        D.add("dog");
-//        D.add("lot");
-//        D.add("log");
-//        D.add("cog");
-//        String start1 = "hit";
-//        String target1 = "cog";
-//        System.out.print("Length of shortest chain is: "
-//                + shortestChainLen(start1, target1, D));
+        System.out.println("Length of chain is: "+ladder("hit", "cog", Arrays.asList(listWords)));
+        System.out.println("Length of chain is: "+ladder("hit", "dog", Arrays.asList(listWords)));
+        System.out.println("Length of chain is: "+ladder("hit", "lod", Arrays.asList(listWords)));
 
     }
 
-    public static int shortestChainLen(String start, String endWord, Set<String> D){
 
-        if(!D.contains(endWord)){
-            System.out.println("The End word is not in the SET");
-            return -1;
-        }
 
-        if(start==endWord){
-            return 0;
-        }
 
-        Queue<String> q = new LinkedList<String>();
-        q.add(start);
+    public static int ladder(String bWord, String eWord, List<String> wList){
 
-        int depth=0, wordLength=start.length();
+        Set<String> set=new HashSet<>(wList);
+        Queue<String> q=new LinkedList<>();
 
+        //Add Begining word to queue
+        q.add(bWord);
+        int count =1;
+
+        //Iterate through all the words in queue
         while(!q.isEmpty()){
+            int size=q.size();
 
-            depth++;
+            for(int i=0; i<size; i++){
+                //Convert the word in to char array
+                char[] current=q.poll().toCharArray();
 
-            int qSize=q.size();
+                //iterate through each word in the char array
+                for(int j=0; j<current.length; j++){
 
-            for(int i=0; i<qSize; i++){
+                    //Store in the temp variable for the future use.
+                    char temp=current[j];
 
-                char[] word= q.peek().toCharArray();
-                q.remove();
+                    for(char c='a'; c <='z'; c++){
+                        current[j]=c;
 
-                for(int pos=0; pos< wordLength; pos++){
-                    char orig_char=word[pos];
+                        String next=new String(current);
 
-                    for(char c='a'; c<='z'; c++){
-                        word[pos]=c;
-
-                        if(String.valueOf(word).equals(endWord)){
-                            return ++depth;
+                        if(set.contains(next)){
+                            if(next.equals(eWord)){
+                                return count+1;
+                            }
+                            q.add(next);
+                            set.remove(next);
                         }
 
-                        if(!D.contains(String.valueOf(word))){
-                            continue;
-                        }
-
-                        D.remove(String.valueOf(word));
-
-                        q.add(String.valueOf(word));
                     }
-                    word[pos]=orig_char;
+                    //To get the original word
+                    current[j]=temp;
                 }
-
             }
-
+            count++;
         }
 
         return 0;
