@@ -65,13 +65,6 @@ public class domainCount {
 
 
         };
-        Map<String, Integer> resMap=getDomainClicks(counts);
-
-        for(Map.Entry<String, Integer> iter: resMap.entrySet()){
-            System.out.println(iter.getKey()+" ---> "+iter.getValue());
-        }
-
-        System.out.println("++++++++++++++++");
 
         Map<String, Integer> resMap1=domainAndCount(counts);
 
@@ -81,78 +74,6 @@ public class domainCount {
 
     }
 
-    public static Map<String, Integer> getDomainClicks(String[] counts){
-
-        Map<String, Integer> map = new HashMap<String, Integer>();
-
-        for(String str : counts){
-
-            String[] domainClick = str.split(",");
-
-            Integer click = Integer.valueOf(domainClick[0]);
-
-            List<String> domains = getDomainFromString(domainClick[1]);
-
-            for(String domain : domains){ //O(10)
-
-                if(map.containsKey(domain)){
-
-                    map.put(domain, map.get(domain)+click);
-
-                }else{
-
-                    map.put(domain, click);
-
-                }
-
-            }
-
-        }
-
-//        System.out.println(map.toString());
-        return map;
-
-    }
-
-
-
-    public static List<String> getDomainFromString(String domainClick){
-
-
-
-        List<String> res = new ArrayList<String>();
-
-        String[] domains = domainClick.split("\\.");
-
-        int count = 0;
-
-        while(count<=domains.length-3){
-
-            StringBuilder str = new StringBuilder();
-
-            int size = count;
-
-            while(size<domains.length){
-
-                str.append(domains[size]).append(".");
-
-                size++;
-
-            }
-
-            res.add(str.substring(0, str.length()-1).toString());
-
-            count++;
-
-        }
-
-        res.add(domains[domains.length-2] + "." + domains[domains.length-1]);
-
-        res.add(domains[domains.length-1]);
-
-        return res;
-
-    }
 
 
 
