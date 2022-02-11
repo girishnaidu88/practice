@@ -2,64 +2,110 @@ package medium;
 
 public class boundaryTraversal {
 
-    public static class TreeNode{
+
+
+    public static class Node{
         int data;
-        TreeNode left, right;
+        Node left, right;
 
-        TreeNode(){
-
-        }
-
-        TreeNode(int d){
-            data=d;
-        }
-
-        TreeNode(int d, TreeNode l, TreeNode r){
-            data=d; left=l; right=r;
+        Node(int item)
+        {
+            data = item;
+            left = right = null;
         }
 
     }
 
-    public static void boundary(TreeNode root){
-        if(root==null){
-            System.out.print(" ");
+
+    Node root;
+
+    // A simple function to print leaf nodes of a binary tree
+    public static void printLeaves(Node node)
+    {
+        if (node == null)
+            return;
+
+        printLeaves(node.left);
+        // Print it if it is a leaf node
+        if (node.left == null && node.right == null)
+            System.out.print(node.data + " ");
+        printLeaves(node.right);
+    }
+
+    // A function to print all left boundary nodes, except a leaf node.
+    // Print the nodes in TOP DOWN manner
+    static void printBoundaryLeft(Node node)
+    {
+        if (node == null)
+            return;
+
+        if (node.left != null) {
+            // to ensure top down order, print the node
+            // before calling itself for left subtree
+            System.out.print(node.data + " ");
+            printBoundaryLeft(node.left);
+        }
+        else if (node.right != null) {
+            System.out.print(node.data + " ");
+            printBoundaryLeft(node.right);
         }
 
+        // do nothing if it is a leaf node, this way we avoid
+        // duplicates in output
+    }
 
+    // A function to print all right boundary nodes, except a leaf node
+    // Print the nodes in BOTTOM UP manner
+    static void printBoundaryRight(Node node)
+    {
+        if (node == null)
+            return;
 
+        if (node.right != null) {
+            // to ensure bottom up order, first call for right
+            // subtree, then print this node
+            printBoundaryRight(node.right);
+            System.out.print(node.data + " ");
+        }
+        else if (node.left != null) {
+            printBoundaryRight(node.left);
+            System.out.print(node.data + " ");
+        }
+        // do nothing if it is a leaf node, this way we avoid
+        // duplicates in output
+    }
+
+    // A function to do boundary traversal of a given binary tree
+    static void printBoundary(Node node)
+    {
+        if (node == null)
+            return;
+
+        System.out.print(node.data + " ");
+
+        // Print the left boundary in top-down manner.
+        printBoundaryLeft(node.left);
+
+        // Print all leaf nodes
+        printLeaves(node.left);
+        printLeaves(node.right);
+
+        // Print the right boundary in bottom-up manner
+        printBoundaryRight(node.right);
     }
     
 
     public static void main(String[] args) {
-        TreeNode root=new TreeNode(1);
-        root.left=new TreeNode(2);
-        root.right=new TreeNode(3);
-        root.left.left=new TreeNode(4);
-        root.left.right=new TreeNode(5);
-        root.right.left=new TreeNode(6);
-        root.right.right=new TreeNode(7);
-        root.right.right.left=new TreeNode(9);
-        root.right.right.left.left=new TreeNode(8);
-
-        TreeNode root2=new TreeNode();
-        TreeNode root3=new TreeNode();
-
-        TreeNode root1=new TreeNode(1);
-        root1.left=new TreeNode(2);
-        root1.left.left=new TreeNode(10);
-        root1.right=new TreeNode(-3);
-        root1.left.left=new TreeNode(4);
-        root1.left.right=new TreeNode(5);
-        root1.right.left=new TreeNode(6);
-        root1.right.right=new TreeNode(7);
-        root1.right.right.left=new TreeNode(9);
-        root1.right.right.left.left=new TreeNode(8);
-
-        boundary(root);
-        System.out.println();
-        boundary(root2);
-        System.out.println();
-        boundary(root1);
+        boundaryTraversal tree = new boundaryTraversal();
+        tree.root = new Node(20);
+        tree.root.left = new Node(8);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(12);
+        tree.root.left.right.left = new Node(10);
+        tree.root.left.right.right = new Node(14);
+        tree.root.right = new Node(22);
+        tree.root.right.right = new Node(25);
+        tree.printBoundary(tree.root);
 
 
     }
