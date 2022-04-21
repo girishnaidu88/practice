@@ -2,7 +2,7 @@ package medium;
 
 import java.util.*;
 
-public class mergeKsortedArrays {
+public class mergeKsortedLists {
 
     public class ListNode {
         int val;
