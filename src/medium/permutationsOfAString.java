@@ -3,7 +3,7 @@ package medium;
 public class permutationsOfAString {
 
     public static void main(String[] args) {
-        String str="ABC";
+        String str="ABCDEF";
         System.out.println("The permutaions of the given string: "+str+" are: ");
         strPermutations(str, 0, str.length()-1);
         System.out.println("\n");

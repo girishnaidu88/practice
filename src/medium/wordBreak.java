@@ -12,7 +12,8 @@ public class wordBreak {
         list.add("apple");
         list.add("pen");
         System.out.println(wordBreak("applepenapple", list));
-        System.out.println(wordBreak("applepens", list));
+        System.out.println(wordBreak("applepen", list));
+        System.out.println(wordBreak("penapple", list));
     }
 
 

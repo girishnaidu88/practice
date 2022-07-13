@@ -3,11 +3,11 @@ package medium;
 public class addStrings {
 
     public static void main(String[] args) {
-//        System.out.println(addStrings("555", "555"));
-//        System.out.println(addStrings("555", " "));
-//        System.out.println(addStrings("1", "555"));
-//        System.out.println(addStrings(" ", " "));
-//        System.out.println(addStrings(" ", ""));
+        System.out.println(addStrings("555", "555"));
+        System.out.println(addStrings("555", " "));
+        System.out.println(addStrings("1", "555"));
+        System.out.println(addStrings(" ", " "));
+        System.out.println(addStrings(" ", ""));
         System.out.println(addStrings("10", "1"));
         System.out.println(addBinaryStrings("1010", "1010"));
     }

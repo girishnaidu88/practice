@@ -9,7 +9,7 @@ public class JustifyText {
     public static void main(String[] args) {
         String[] text1 = {"It underscores our responsibility",
                 "to deal more kindly with one another"};
-        int lineLength1 = 15;
+        int lineLength1 = 35;
         String[] text2 = {"The Earth is",
                 "the only world",
                 "known so far",

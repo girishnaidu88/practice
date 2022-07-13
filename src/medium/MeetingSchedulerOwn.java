@@ -33,27 +33,20 @@ public class MeetingSchedulerOwn {
 
     public static List<int[]> findSchedules(List<int[][]> schedules){
         List<int[]> combinedList= new ArrayList<>();
-
-
         //Adding all the schedules into the list
         for(int[][] participant: schedules){
             for(int[] pa: participant){
                 combinedList.add(pa);
             }
         }
-
         Collections.sort(combinedList, (a,b) -> a[0] > b[0] ? 1: -1);
-
         List<int[]> result=new ArrayList<>();
-
         int min=combinedList.get(0)[0];
         int max=combinedList.get(0)[1];
-
         if(min > 0){
             int[] temp={0, min};
             result.add(temp);
         }
-
         for(int i=0; i<combinedList.size(); i++){
             if(max < combinedList.get(i)[0]){
                 int[] temp={max, combinedList.get(i)[1]};
@@ -63,12 +56,10 @@ public class MeetingSchedulerOwn {
                 max=Math.max(max, combinedList.get(i)[1]);
             }
         }
-
         if(max < 2400){
             int[] temp={max, 2400};
             result.add(temp);
         }
-
         return result;
 
     }

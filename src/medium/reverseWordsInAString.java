@@ -15,8 +15,9 @@ public class reverseWordsInAString {
                 i=j+1;
             }
         }
-
+        System.out.println("String after 1st rev: "+String.valueOf(s));
         reverse(s, i, s.length-1);
+        System.out.println("String after 2nd rev: "+String.valueOf(s));
         reverse(s, 0, s.length-1);
 
         System.out.println("Reversed String: "+String.valueOf(s));

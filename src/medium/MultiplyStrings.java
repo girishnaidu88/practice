@@ -59,10 +59,10 @@ public class MultiplyStrings {
             }
         }
 
-        for(int i=ans.length-1; i>0; i--){
-            ans[i-1]=ans[i-1]+ans[i]/10;
-            ans[i]=ans[i]%10;
-        }
+//        for(int i=ans.length-1; i>0; i--){
+//            ans[i-1]=ans[i-1]+ans[i]/10;
+//            ans[i]=ans[i]%10;
+//        }
 
         for(int i: ans){
             sb.append(i);

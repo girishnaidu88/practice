@@ -14,10 +14,8 @@ public class maxProductSubArray {
 
         for(int i=1; i<vals.length; i++){
             int curr = vals[i];
-            int tempMax = Math.max(curr, Math.max(maxSofar*curr, minSofar*curr));
+            maxSofar = Math.max(curr, Math.max(maxSofar*curr, minSofar*curr));
             minSofar = Math.min(curr, Math.min(maxSofar*curr, minSofar*curr));
-
-            maxSofar = tempMax;
 
             result=Math.max(maxSofar, result);
         }

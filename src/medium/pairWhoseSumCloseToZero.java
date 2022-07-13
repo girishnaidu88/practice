@@ -35,7 +35,7 @@ public class pairWhoseSumCloseToZero {
 
     public static void findPairWithMinSum(int[] arr){
         int minSum=Integer.MAX_VALUE;
-        System.out.println("The minSum: "+ minSum);
+//        System.out.println("The minSum: "+ minSum);
         Arrays.sort(arr);
         int minLeft=0, minRight=0;
         int n = arr.length;

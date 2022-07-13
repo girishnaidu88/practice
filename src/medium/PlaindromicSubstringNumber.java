@@ -2,7 +2,7 @@ package medium;
 
 public class PlaindromicSubstringNumber {
     public static void main(String[] args) {
-        System.out.println(countSubstrings("abc"));
+        System.out.println(countSubstrings("qwsabacde"));
         System.out.println(countSubstrings("a"));
         System.out.println(countSubstrings("aaa"));
         System.out.println(countSubstrings("aaba"));

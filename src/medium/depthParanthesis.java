@@ -35,7 +35,7 @@ public class depthParanthesis {
 
     // Driver program
     public static void main(String[] args) {
-        String s = "( ((X)) (((Y))) )";
+        String s = "( ((X)) ((((Y)))) )";
         System.out.println(maxDepth(s));
     }
 }

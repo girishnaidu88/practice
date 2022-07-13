@@ -7,13 +7,13 @@ import java.util.Set;
 public class LongestSubsequesce {
     public static void main(String[] args) {
         System.out.println("Sorting: "+longestSubsequenceArrSort(new int[]{100,4,200,1,3,2}));
-        System.out.println("Hashset: "+longestSubsequenceArrSort(new int[]{100,4,200,1,3,2}));
+        System.out.println("Hashset: "+longestSubsequenceHashSet(new int[]{100,4,200,1,3,2}));
         System.out.println("Sorting: "+longestSubsequenceArrSort(new int[]{0,3,7,2,5,8,4,6,0,1}));
-        System.out.println("Hashset: "+longestSubsequenceArrSort(new int[]{0,3,7,2,5,8,4,6,0,1}));
+        System.out.println("Hashset: "+longestSubsequenceHashSet(new int[]{0,3,7,2,5,8,4,6,0,1}));
         System.out.println("Sorting: "+longestSubsequenceArrSort(new int[]{0, 1, 3}));
-        System.out.println("Hashset: "+longestSubsequenceArrSort(new int[]{0, 1, 3}));
+        System.out.println("Hashset: "+longestSubsequenceHashSet(new int[]{0, 1, 3}));
         System.out.println("Sorting: "+longestSubsequenceArrSort(new int[]{}));
-        System.out.println("Hashset: "+longestSubsequenceArrSort(new int[]{}));
+        System.out.println("Hashset: "+longestSubsequenceHashSet(new int[]{}));
     }
 
     public static int longestSubsequenceArrSort(int[] numbers){
@@ -47,7 +47,7 @@ public class LongestSubsequesce {
             numSet.add(i);
         }
 
-        int longestStreak=1;
+        int longestStreak=0;
 
         for(int num: numSet){
             if(!numSet.contains(num-1)){

@@ -17,24 +17,18 @@ public class maxSlidingWindow {
         int ri=0;
 
         Deque<Integer> q=new ArrayDeque<>();
-
         for(int i=0; i<a.length; i++){
-
             if(!q.isEmpty() && q.peek() == i-k){
                 q.poll();
             }
-
             while(!q.isEmpty() && a[q.peekLast()] < a[i]){
                 q.pollLast();
             }
-
             q.offer(i);
             if(i>= k-1){
                 r[ri++]=a[q.peek()];
             }
         }
-
         System.out.println(Arrays.toString(r));
-
     }
 }

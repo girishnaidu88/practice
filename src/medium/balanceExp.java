@@ -43,7 +43,8 @@ public class balanceExp {
         }
 
 
-        return !s.empty()? false: true;
+//        return !s.empty()? false: true;
+        return (s.size()==0);
     }
 
 }

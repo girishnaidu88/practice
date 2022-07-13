@@ -10,7 +10,7 @@ public class EncodeDecodeString {
         sList.add("Hello");
         sList.add("world");
 
-        decode(encode(sList));
+        System.out.println(decode(encode(sList)));
     }
 
     public static String encode(List<String> strs) {
@@ -23,6 +23,7 @@ public class EncodeDecodeString {
             sb.append(d);
         }
         sb.deleteCharAt(sb.length() - 1);
+        System.out.println("Encoded: "+sb.toString());
         return sb.toString();
     }
 

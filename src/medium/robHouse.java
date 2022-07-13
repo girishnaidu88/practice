@@ -5,7 +5,7 @@ public class robHouse {
     public static void main(String[] args) {
         System.out.println("rob House: "+rob(new int[]{1,2,3,1}));
         System.out.println("rob House Optimized: "+robOptimized(new int[]{1,2,3,1}));
-        System.out.println("rob House: "+rob(new int[]{3,2,7,9,3,1}));
+        System.out.println("rob House: "+rob(new int[]{-3,2,7,9,3,1}));
         System.out.println("rob House Optimized: "+robOptimized(new int[]{2,2,7,9,3,1}));
     }
 

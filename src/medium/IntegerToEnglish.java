@@ -13,9 +13,13 @@ public class IntegerToEnglish {
         System.out.println(numberToWords(12334));
         System.out.println(numberToWords(10000001));
         System.out.println(numberToWords(0));
+        System.out.println(numberToWords(-123));
     }
 
     public static String numberToWords(int num) {
+        if(num <0){
+            return "Invalid Number";
+        }
         if(num==0)
             return "Zero";
         else

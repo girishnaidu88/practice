@@ -24,7 +24,7 @@ public class zigZagConversion {
             for(int idx=0; idx<nRows && i<len; idx++){
                 sb[idx].append(c[i++]);
             }
-
+     
             for(int idx=nRows-2; idx>=1 && i<len; idx--){
                 sb[idx].append(c[i++]);
             }

@@ -5,6 +5,7 @@ public class insertPositionInSortedArray {
         insertposition(new int[]{1, 3, 5, 6}, 3);
         insertposition(new int[]{1, 3, 5, 6}, 4);
         insertposition(new int[]{1, 3, 5, 6}, 2);
+        insertposition(new int[]{1, 3, 5, 6}, -2);
     }
 
     public static void insertposition(int[] arr, int key){

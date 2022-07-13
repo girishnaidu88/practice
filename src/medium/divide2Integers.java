@@ -3,7 +3,7 @@ package medium;
 public class divide2Integers {
 
     public static void main(String[] args) {
-        divideIntegers(9, 3);
+        divideIntegers(10, 3);
         divideIntegers(-9, 3);
         divideIntegers(7, -3);
         divideIntegers(19, 19);
